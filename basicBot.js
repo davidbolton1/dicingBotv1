@@ -9,7 +9,19 @@ client.on('ready', () => {
 client.on('message', (message) => {
   const messageWords = message.content.split(' ');
   const rollFlavor = messageWords.slice(2).join(' ');
-  if (messageWords[0] === '!roll') {
+  if (messageWords[0] === '!55x2' ) {
+    let response = (Math.floor(Math.random() * 100) + 1) + ' ' + rollFlavor
+    if (response >= 55) {
+    return message.reply(
+      `You rolled a ${response} and won!`
+    )
+    } else {
+      return message.reply(
+        `You rolled a ${response} and the host won, better luck next time!`
+      )
+  }
+  }
+  if (messageWords[0] === '!roll' ) {
     if (messageWords.length === 1) {
       // !roll
       let response = (Math.floor(Math.random() * 6) + 1) + ' ' + rollFlavor
@@ -17,6 +29,7 @@ client.on('message', (message) => {
         `You have rolled a ${response}!`
       );
     }
+
     let sides = messageWords[1]; // !roll 20
     let rolls = 1;
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
