@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const { Client, MessageEmbed } = require('discord.js');
 //const config = require('./config.json');
-const client = new Discord.Client();
+const client = new Client();
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -12,13 +12,18 @@ client.on('message', (message) => {
   if (messageWords[0] === '!55x2' ) {
     let response = (Math.floor(Math.random() * 100) + 1) + ' ' + rollFlavor
     if (response >= 55) {
-    return message.reply(
-      `You rolled a ${response} and won!`
+    return message.reply({embed: {
+      color: 3447003,
+      description: `You rolled a ${response} and won!`,
+
+    }}
     )
     } else {
-      return message.reply(
-        `You rolled a ${response} and the host won, better luck next time!`
-      )
+      return message.reply({embed: {
+        color: 15158332,
+        description: `You rolled a ${response} and the host won, better luck next time!`         ,
+  
+      }})
   }
   }
   if (messageWords[0] === '!roll' ) {
@@ -57,6 +62,7 @@ client.on('message', (message) => {
       );
     }
   }
+
 });
 
 client.login('NzI3OTkyNzA4ODkwNzU1MDgz.Xvz84A.prIUIQNnVNeTrbNeAeKiDijD1lg')
