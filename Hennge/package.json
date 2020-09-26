@@ -1,0 +1,17 @@
+{
+  "name": "hennge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hennge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "base-64": "^0.1.0",
+    "otplib": "^12.0.1",
+    "utf8": "^3.0.0"
+  }
+}
